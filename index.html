@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script type="text/javascript" src="js/WordsAPI.js"></script>
+        <script src="js/passAPI.js"></script>
+        <script src="js/words_dictionary.js"></script>
+
+        <script>
+            var json = JSON.parse(dictionary);
+            var dict = Object.keys(json);
+            
+        </script>
+    </head>
+    <body>
+        <button id="wordy1" onclick="changeWack('word1');">Change1</button>
+        <button id="wordy2" onclick="change('word2');">Change2</button>
+        <button id="wordy3" onclick="change('word3');">Change3</button>
+        <button id="wordy4" onclick="change('word4');">Change4</button>
+        <p id="word1"></p>
+        <p id="word2"></p>
+        <p id="word3"></p>
+        <p id="word4"></p>
+        
+        <button id="Combiner" onclick="document.getElementById('Final').innerHTML = createPassWords([document.getElementById('word1').innerHTML, document.getElementById('word2').innerHTML, document.getElementById('word3').innerHTML, document.getElementById('word4').innerHTML]);">Create Password</button>
+        
+        <p id="Final"></p>
+        
+        <script>
+            function changeWack(wordbutt) {
+                document.getElementById(wordbutt).innerHTML = createWord(Math.round(getRandomArbitrary(3, 7)));
+            }
+            
+            function change(wordbutt) {
+                document.getElementById(wordbutt).innerHTML = dict[Math.round(getRandomArbitrary(0, 370101))];
+            }
+            document.getElementById("word1").innerHTML = createWord(Math.round(getRandomArbitrary(3, 7)));
+            document.getElementById("word2").innerHTML = dict[Math.round(getRandomArbitrary(0, 370101))];
+            document.getElementById("word3").innerHTML = dict[Math.round(getRandomArbitrary(0, 370101))];
+            document.getElementById("word4").innerHTML = dict[Math.round(getRandomArbitrary(0, 370101))];
+        </script>
+    </body>
+</html>
